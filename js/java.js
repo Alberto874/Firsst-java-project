@@ -1,40 +1,106 @@
-let tipOutput = document.getElementById("tipAmountOutput");
-let totalOutput = document.getElementById("totalBillOutput");
-let checkOutput = document.getElementById("paycheckAmountOutput");
-let gradeOutput = document.getElementById("percentGradeOutput");
-let gasOutput = document.getElementById("gasCostOutput");
+// Output HTML Element Variables
+let tipOutput = document.getElementById('tipAmountOutput');
+let totalOutput = document.getElementById('totalBillOutput');
+let checkOutput = document.getElementById('paycheckAmountOutput');
+let gradeOutput = document.getElementById('percentGradeOutput');
+let gasOutput = document.getElementById('gasCostOutput');
+
 
 let tipBtn = document.getElementById("tipButton");
-tipBtn.addEventListener("click", function() {
-// Tip Calculator
-let tipAmount;
-let subTotal = document.getElementById("subTotalInput").valueAsNumber;
-let percentage = document.getElementById("percentageInput").valueAsNumber;
-let totalBill;
+tipBtn.addEventListener('click', function () {
+    // Tip Calculator Variables
+    let subTotal = document.getElementById('subTotalInput').valueAsNumber;
+    let percentage = document.getElementById('percentageInput').valueAsNumber;
+    let tipAmount;
+    let totalBill;
 
-tipAmount = subTotal * percentage;
-totalBill = subTotal + tipAmount;
 
-tipAmount = tipAmount.toFixed(2);
-totalBill = totalBill.toFixed(2);
+    // Do the math
+    tipAmount = subTotal * percentage;
+    totalBill = subTotal + tipAmount;
 
-tipOutput.innerHTML = "$" + tipAmount;
-totalOutput.innerHTML = "$" + totalBill;
+
+    // Only show 2 decimal places
+    tipAmount = tipAmount.toFixed(2);
+    totalBill = totalBill.toFixed(2);
+
+
+    // Show the output
+    tipOutput.innerHTML = "$" + tipAmount;
+    totalOutput.innerHTML = "$" + totalBill;
 })
+
 
 let paycheckBtn = document.getElementById("paycheckButton");
-paycheckBtn.addEventListener('click', function() {
-//paycheck
+paycheckBtn.addEventListener('click', function () {
+    // Paycheck Calculator Variables
+    let hoursWorked = document.getElementById('hoursWorkedInput').valueAsNumber;
+    let hourlyRate = document.getElementById('hourlyRateInput').valueAsNumber;
+    let paycheckAmount;
 
-let hoursWorked = 40;
-let hourlyRate = 16;
-let totalTax = 0.2;
-let paycheckAmount = document.getElementById("paycheckAmountOutput").valueAsNumber;
 
-paycheckAmount = hoursWorked * hourlyRate / (1 + totalTax);
-paycheckAmount = paycheckAmount.toFixed(2);
-paycheckOutput.innerHTML = "$" + paycheckAmount;
+    // Do the math
+    paycheckAmount = hoursWorked * hourlyRate;
+
+
+    // Only show 2 decimal places
+    paycheckAmount = paycheckAmount.toFixed(2);
+
+
+    // Show the output
+    checkOutput.innerHTML = "$" + paycheckAmount;
 })
+
+
+
+
+let gradeBtn = document.getElementById("gradeButton");
+gradeBtn.addEventListener('click', function () {
+    // Grade Calculator Variables
+    let pointsEarned = document.getElementById('pointsEarnedInput').valueAsNumber;
+    let totalPoints = document.getElementById('totalPointsInput').valueAsNumber;
+    let percentGrade;
+
+
+    // Do the math
+    percentGrade = pointsEarned / totalPoints;
+
+
+    // Change to Percent instead of Decimal
+    percentGrade = Math.round(percentGrade * 100);
+
+
+    // Show the output
+    gradeOutput.innerHTML = percentGrade + "%";
+
+
+})
+
+
+let gasBtn = document.getElementById("gasButton");
+gasBtn.addEventListener('click', function () {
+
+
+    // Gas Cost Calculator Variables
+    let tankGallons = document.getElementById('tankGallonsInput').valueAsNumber;
+    let perGallon = document.getElementById('perGallonInput').valueAsNumber;
+    let gasCost;
+
+
+    // Do the math
+    gasCost = tankGallons * perGallon;
+
+
+    // Only show 2 decimal places
+    gasCost = gasCost.toFixed(2);
+
+
+    // Show the output
+    gasOutput.innerHTML = "$" + gasCost;
+
+
+})
+
 
 
 // Grade Calculator
