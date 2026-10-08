@@ -4,7 +4,7 @@ let totalOutput = document.getElementById('totalBillOutput');
 let checkOutput = document.getElementById('paycheckAmountOutput');
 let gradeOutput = document.getElementById('percentGradeOutput');
 let gasOutput = document.getElementById('gasCostOutput');
-
+let diceOutput = document.getElementById('diceOutput');
 
 let tipBtn = document.getElementById("tipButton");
 tipBtn.addEventListener('click', function () {
@@ -120,3 +120,14 @@ let gasCost;
 let gasTank = 15.3;
 gasCost = perGallon * gasTank;
 console.log("Gas cost: " + gasCost.toFixed(2));
+
+let diceBtn = document.getElementById("diceButton");
+diceBtn.addEventListener('click', function () {
+    //dice roll
+    let numberRolled;
+    //math
+    numberRolled = Math.random() * 6 + 1;
+    //mathfloor
+    numberRolled = Math.floor(numberRolled);
+    diceOutput.innerHTML = numberRolled;
+})
