@@ -19,3 +19,11 @@
     --bs-btn-disabled-bg: #6f42c1;
     --bs-btn-disabled-border-color: #6f42c1;
 }
+.bg-orange {
+  background-color: #ff6f00 !important;
+  color: #ffffff;
+}
+.btn-orange {
+  background-color: #ff6f00 !important;
+  color: #ffffff;
+}
